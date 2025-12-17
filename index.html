@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CASA DOOPLER</title>
+
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --text:#ffffff;
+      --muted:rgba(255,255,255,.75);
+      --chip:rgba(255,255,255,.10);
+      --chip-border:rgba(255,255,255,.18);
+      --card:rgba(0,0,0,.45);
+      --card-border:rgba(255,255,255,.20);
+      --radius-xl:24px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    /* Título superior */
+    .topbar{
+      position:fixed;
+      top:18px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:50;
+      padding:10px 18px;
+      border-radius:999px;
+      background:var(--chip);
+      border:1px solid var(--chip-border);
+      backdrop-filter:blur(10px);
+      box-shadow:var(--shadow);
+      font-size:14px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    main{scroll-snap-type:y proximity}
+
+    .section{
+      position:relative;
+      height:100vh;
+      min-height:620px;
+      scroll-snap-align:start;
+      display:flex;
+      align-items:flex-end;
+      padding:26px;
+    }
+
+    .bg{
+      position:absolute;
+      inset:0;
+      overflow:hidden;
+    }
+
+    .bg img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .bg::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(1200px 700px at 20% 80%, rgba(0,0,0,.15), rgba(0,0,0,.55)),
+        linear-gradient(to top, rgba(0,0,0,.6), rgba(0,0,0,.1));
+    }
+
+    /* Card producto */
+    .card{
+      position:relative;
+      z-index:2;
+      width:min(420px,92vw);
+      border-radius:var(--radius-xl);
+      background:var(--card);
+      border:1px solid var(--card-border);
+      backdrop-filter:blur(10px);
+      box-shadow:var(--shadow);
+      padding:16px;
+    }
+
+    .card h2{
+      margin:0 0 6px 0;
+      font-size:18px;
+      letter-spacing:.02em;
+    }
+
+    .price{
+      margin:0 0 14px 0;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 16px;
+      border-radius:16px;
+      text-decoration:none;
+      font-weight:600;
+      border:1px solid rgba(255,255,255,.25);
+      background:rgba(255,255,255,.92);
+      color:#111;
+    }
+
+    .btn:hover{
+      background:#fff;
+    }
+
+    @media (max-width:520px){
+      .section{padding:18px}
+      .topbar{top:12px}
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    CASA DOOPLER
+  </header>
+
+  <main>
+
+    <!-- 01 -->
+    <section class="section">
+      <div class="bg">
+        <img src="images/Birra01.png" alt="Cerveza lata Amstel">
+      </div>
+
+      <div class="card">
+        <h2>CERVEZA LATA AMSTEL</h2>
+        <p class="price">$4.500</p>
+        <a class="btn" href="https://link.mercadopago.com.ar/TU_LINK_01" target="_blank">
+          Pedir
+        </a>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="section">
+      <div class="bg">
+        <img src="images/Birra02.png" alt="Combo cerveza Amstel x2">
+      </div>
+
+      <div class="card">
+        <h2>COMBO – CERVEZA LATA AMSTEL x2</h2>
+        <p class="price">$8.000</p>
+        <a class="btn" href="https://link.mercadopago.com.ar/TU_LINK_02" target="_blank">
+          Pedir
+        </a>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="section">
+      <div class="bg">
+        <img src="images/Pizza01.png" alt="Pizza casera porción">
+      </div>
+
+      <div class="card">
+        <h2>PIZZA CASERA (Porción)</h2>
+        <p class="price">$2.000</p>
+        <a class="btn" href="https://link.mercadopago.com.ar/TU_LINK_03" target="_blank">
+          Pedir
+        </a>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="section">
+      <div class="bg">
+        <img src="images/Fernet01.png" alt="Vaso fernet">
+      </div>
+
+      <div class="card">
+        <h2>VASO FERNET</h2>
+        <p class="price">$6.000</p>
+        <a class="btn" href="https://link.mercadopago.com.ar/TU_LINK_04" target="_blank">
+          Pedir
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
