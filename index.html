@@ -8,19 +8,17 @@
   <style>
     :root{
       --bg:#0b0b0b;
-      --text:#ffffff;
       --muted:rgba(255,255,255,.85);
 
-      /* Glass */
       --glass-blue: rgba(0, 90, 255, 0.22);
       --glass-border: rgba(255,255,255,.22);
 
       --radius-xl:24px;
       --shadow:0 10px 30px rgba(0,0,0,.25);
 
-      /* NUEVOS COLORES */
       --red-solid:#e10600;
       --pink-baby:#ffd1e8;
+      --blue-solid:#0a4bff;
     }
 
     *{box-sizing:border-box}
@@ -28,12 +26,11 @@
     body{
       margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      overflow-x:hidden;
+      background:#0b0b0b;
+      color:#fff;
     }
 
-    /* Título superior */
+    /* TOPBAR */
     .topbar{
       position:fixed;
       top:18px;
@@ -42,17 +39,12 @@
       z-index:50;
       padding:10px 20px;
       border-radius:999px;
-
-      background: var(--red-solid);
-      border:1px solid rgba(255,255,255,.25);
-      box-shadow:var(--shadow);
-
+      background:var(--red-solid);
+      color:var(--pink-baby);
       font-size:14px;
       letter-spacing:.14em;
       text-transform:uppercase;
-      white-space:nowrap;
-
-      color: var(--pink-baby);
+      box-shadow:var(--shadow);
     }
 
     main{scroll-snap-type:y proximity}
@@ -71,7 +63,6 @@
     .bg{
       position:absolute;
       inset:0;
-      overflow:hidden;
     }
 
     .bg img{
@@ -80,26 +71,23 @@
       object-fit:cover;
     }
 
-    /* Card producto */
+    /* PRODUCT CARD */
     .card{
       position:relative;
       z-index:2;
       width:min(520px,92vw);
       border-radius:var(--radius-xl);
-
-      background: var(--glass-blue);
+      background:var(--glass-blue);
       border:1px solid var(--glass-border);
       backdrop-filter:blur(12px);
-      -webkit-backdrop-filter:blur(12px);
-
       box-shadow:var(--shadow);
       padding:18px;
     }
 
     .card-row{
       display:flex;
-      align-items:center;
       justify-content:space-between;
+      align-items:center;
       gap:16px;
     }
 
@@ -109,10 +97,11 @@
       gap:6px;
     }
 
+    /* 🔴 TÍTULOS ROJOS */
     .card h2{
       margin:0;
       font-size:18px;
-      letter-spacing:.02em;
+      color:var(--red-solid);
     }
 
     .price{
@@ -121,236 +110,174 @@
       color:var(--muted);
     }
 
-    /* BOTONES PEDIR – mismos colores que topbar */
+    /* 🌸 BOTONES ROSAS */
     .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
       padding:12px 18px;
       border-radius:16px;
-      text-decoration:none;
       font-weight:800;
-
-      background: var(--red-solid);
-      color: var(--pink-baby);
-      border:1px solid rgba(255,255,255,.25);
-      white-space:nowrap;
+      background:var(--pink-baby);
+      color:#111;
+      border:none;
       cursor:pointer;
+      text-decoration:none;
+      white-space:nowrap;
     }
 
-    .btn:hover{
-      filter: brightness(1.05);
-    }
+    .btn:hover{filter:brightness(1.05)}
 
-    @media (max-width:520px){
-      .section{padding:18px}
-      .topbar{top:12px}
-      .card-row{flex-direction:column; align-items:flex-start}
-      .btn{width:100%}
-    }
-
-    /* =========================
-       Alias
-       ========================= */
-
+    /* 🔵 ALIAS – MITAD DE ALTURA */
     .section-alias{
-      background:#0a4bff;
+      height:50vh;
+      min-height:320px;
+      background:var(--blue-solid);
     }
 
     .alias-card{
-      width:min(720px,92vw);
       text-align:center;
       display:flex;
       flex-direction:column;
       gap:16px;
     }
 
-    .alias-title{
-      margin:0;
-      font-size:20px;
-    }
-
     .alias-row{
       display:flex;
-      align-items:center;
-      justify-content:center;
       gap:12px;
+      justify-content:center;
       flex-wrap:wrap;
     }
 
     .alias-pill{
-      padding:12px 16px;
+      padding:12px 18px;
       border-radius:18px;
-      background:rgba(0,90,255,.22);
-      border:1px solid rgba(255,255,255,.22);
-      backdrop-filter:blur(12px);
-      box-shadow:var(--shadow);
+      background:rgba(255,255,255,.15);
+      border:1px solid rgba(255,255,255,.3);
+      backdrop-filter:blur(10px);
       font-weight:800;
       letter-spacing:.08em;
-      text-transform:uppercase;
-      color:#fff;
-      min-width:220px;
-      user-select:all;
     }
 
-    .copy-btn{
-      background: var(--red-solid);
-      color: var(--pink-baby);
-    }
-
-    .copy-status{
-      margin:0;
-      font-size:12px;
-      color:rgba(255,255,255,.85);
-      min-height:16px;
-    }
-
-    /* =========================
-       Footer
-       ========================= */
-
+    /* 🌸 FOOTER MÁS GRANDE */
     .footer{
-      background: var(--pink-baby);
-      color:#0a4bff;
-      padding:18px 16px;
+      background:var(--pink-baby);
+      color:var(--blue-solid);
+      padding:48px 20px; /* DOBLE ALTURA */
       text-align:center;
     }
 
     .footer-inner{
-      max-width:980px;
-      margin:0 auto;
       display:flex;
+      flex-direction:column;
       align-items:center;
-      justify-content:center;
       gap:12px;
-      flex-wrap:wrap;
-      font-size:12px;
-      opacity:.95;
+      font-size:13px;
     }
 
     .ig-link{
-      width:34px;height:34px;
-      display:inline-flex;
+      width:40px;
+      height:40px;
+      display:flex;
       align-items:center;
       justify-content:center;
-      border-radius:12px;
-      border:1px solid rgba(10,75,255,.25);
-      background:rgba(255,255,255,.25);
-      text-decoration:none;
+      border-radius:14px;
+      background:rgba(255,255,255,.5);
     }
 
     .ig-icon{
-      width:18px;height:18px;
-      fill:#0a4bff;
+      width:20px;
+      height:20px;
+      fill:var(--blue-solid);
+    }
+
+    @media(max-width:520px){
+      .card-row{flex-direction:column;align-items:flex-start}
+      .btn{width:100%}
     }
   </style>
 </head>
 
 <body>
 
-  <header class="topbar">CASA DOOPLER</header>
+<header class="topbar">CASA DOOPLER</header>
 
-  <main>
+<main>
 
-    <!-- Productos (idénticos, solo colores cambiados) -->
-    <section class="section">
-      <div class="bg"><img src="images/Birra01.png" alt=""></div>
-      <div class="card">
-        <div class="card-row">
-          <div class="card-text">
-            <h2>CERVEZA LATA AMSTEL</h2>
-            <p class="price">$4.500</p>
-          </div>
-          <a class="btn" href="https://link.mercadopago.com.ar/TU_LINK_01" target="_blank">Pedir</a>
+  <!-- PRODUCTOS -->
+  <section class="section">
+    <div class="bg"><img src="images/Birra01.png"></div>
+    <div class="card">
+      <div class="card-row">
+        <div class="card-text">
+          <h2>CERVEZA LATA AMSTEL</h2>
+          <p class="price">$4.500</p>
         </div>
+        <a class="btn" href="#">Pedir</a>
       </div>
-    </section>
-
-    <section class="section">
-      <div class="bg"><img src="images/Birra02.png" alt=""></div>
-      <div class="card">
-        <div class="card-row">
-          <div class="card-text">
-            <h2>COMBO – CERVEZA LATA AMSTEL x2</h2>
-            <p class="price">$8.000</p>
-          </div>
-          <a class="btn" href="https://link.mercadopago.com.ar/TU_LINK_02" target="_blank">Pedir</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="bg"><img src="images/Pizza01.png" alt=""></div>
-      <div class="card">
-        <div class="card-row">
-          <div class="card-text">
-            <h2>PIZZA CASERA (Porción)</h2>
-            <p class="price">$2.000</p>
-          </div>
-          <a class="btn" href="https://link.mercadopago.com.ar/TU_LINK_03" target="_blank">Pedir</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="bg"><img src="images/Fernet01.png" alt=""></div>
-      <div class="card">
-        <div class="card-row">
-          <div class="card-text">
-            <h2>VASO FERNET</h2>
-            <p class="price">$6.000</p>
-          </div>
-          <a class="btn" href="https://link.mercadopago.com.ar/TU_LINK_04" target="_blank">Pedir</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Alias -->
-    <section class="section section-alias">
-      <div class="alias-card">
-        <h2 class="alias-title">Copiá el alias y personalizá tu pedido</h2>
-        <div class="alias-row">
-          <div class="alias-pill" id="aliasText">CASADOOPLER</div>
-          <button class="btn copy-btn" id="copyBtn" type="button">Copiar</button>
-        </div>
-        <p class="copy-status" id="copyStatus"></p>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      <small>gracias por visitarnos!<br>CASA DOOPLER - art place</small>
-      <a class="ig-link" href="https://www.instagram.com/casa_doopler/?hl=es" target="_blank" aria-label="Instagram">
-        <svg class="ig-icon" viewBox="0 0 24 24"><path d="M7.75 2h8.5C19.44 2 22 4.56 22 7.75v8.5C22 19.44 19.44 22 16.25 22h-8.5C4.56 22 2 19.44 2 16.25v-8.5C2 4.56 4.56 2 7.75 2Zm0 2C5.66 4 4 5.66 4 7.75v8.5C4 18.34 5.66 20 7.75 20h8.5C18.34 20 20 18.34 20 16.25v-8.5C20 5.66 18.34 4 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"/></svg>
-      </a>
     </div>
-  </footer>
+  </section>
 
-  <script>
-    (function(){
-      const alias="CASADOOPLER";
-      const btn=document.getElementById("copyBtn");
-      const status=document.getElementById("copyStatus");
-      btn.addEventListener("click", async ()=>{
-        try{
-          if(navigator.clipboard && window.isSecureContext){
-            await navigator.clipboard.writeText(alias);
-          }else{
-            const ta=document.createElement("textarea");
-            ta.value=alias; ta.style.position="fixed"; ta.style.left="-9999px";
-            document.body.appendChild(ta); ta.select(); document.execCommand("copy");
-            document.body.removeChild(ta);
-          }
-          status.textContent="Alias copiado ✔";
-          setTimeout(()=>status.textContent="",1800);
-        }catch(e){
-          status.textContent="No se pudo copiar. Copiá manualmente.";
-        }
-      });
-    })();
-  </script>
+  <section class="section">
+    <div class="bg"><img src="images/Birra02.png"></div>
+    <div class="card">
+      <div class="card-row">
+        <div class="card-text">
+          <h2>COMBO – CERVEZA LATA AMSTEL x2</h2>
+          <p class="price">$8.000</p>
+        </div>
+        <a class="btn" href="#">Pedir</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="bg"><img src="images/Pizza01.png"></div>
+    <div class="card">
+      <div class="card-row">
+        <div class="card-text">
+          <h2>PIZZA CASERA (Porción)</h2>
+          <p class="price">$2.000</p>
+        </div>
+        <a class="btn" href="#">Pedir</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="bg"><img src="images/Fernet01.png"></div>
+    <div class="card">
+      <div class="card-row">
+        <div class="card-text">
+          <h2>VASO FERNET</h2>
+          <p class="price">$6.000</p>
+        </div>
+        <a class="btn" href="#">Pedir</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALIAS -->
+  <section class="section section-alias">
+    <div class="alias-card">
+      <h2>Copiá el alias y personalizá tu pedido</h2>
+      <div class="alias-row">
+        <div class="alias-pill">CASADOOPLER</div>
+        <button class="btn">Copiar</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <small>gracias por visitarnos!</small>
+    <small>CASA DOOPLER - art place</small>
+    <a class="ig-link" href="https://www.instagram.com/casa_doopler/?hl=es" target="_blank">
+      <svg class="ig-icon" viewBox="0 0 24 24">
+        <path d="M7.75 2h8.5C19.44 2 22 4.56 22 7.75v8.5C22 19.44 19.44 22 16.25 22h-8.5C4.56 22 2 19.44 2 16.25v-8.5C2 4.56 4.56 2 7.75 2Z"/>
+      </svg>
+    </a>
+  </div>
+</footer>
 
 </body>
 </html>
