@@ -9,13 +9,16 @@
     :root{
       --bg:#0b0b0b;
       --text:#ffffff;
-      --muted:rgba(255,255,255,.75);
-      --chip:rgba(255,255,255,.10);
-      --chip-border:rgba(255,255,255,.18);
-      --card:rgba(0,0,0,.45);
-      --card-border:rgba(255,255,255,.20);
+      --muted:rgba(255,255,255,.85);
+
+      /* Glass */
+      --glass-blue: rgba(0, 90, 255, 0.22);
+      --glass-border: rgba(255,255,255,.22);
+
       --radius-xl:24px;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+
+      --orange: #ff7a1a;
     }
 
     *{box-sizing:border-box}
@@ -37,14 +40,19 @@
       z-index:50;
       padding:10px 18px;
       border-radius:999px;
-      background:var(--chip);
-      border:1px solid var(--chip-border);
+
+      background: rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.18);
       backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
       box-shadow:var(--shadow);
+
       font-size:14px;
       letter-spacing:.14em;
       text-transform:uppercase;
       white-space:nowrap;
+
+      color: var(--orange);
     }
 
     main{scroll-snap-type:y proximity}
@@ -54,8 +62,10 @@
       height:100vh;
       min-height:620px;
       scroll-snap-align:start;
+
       display:flex;
-      align-items:flex-end;
+      align-items:center;      /* CENTRADO VERTICAL */
+      justify-content:center;  /* CENTRADO HORIZONTAL */
       padding:26px;
     }
 
@@ -71,30 +81,24 @@
       object-fit:cover;
     }
 
-    .bg::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(1200px 700px at 20% 80%, rgba(0,0,0,.15), rgba(0,0,0,.55)),
-        linear-gradient(to top, rgba(0,0,0,.6), rgba(0,0,0,.1));
-    }
-
     /* Card producto */
     .card{
       position:relative;
       z-index:2;
       width:min(420px,92vw);
       border-radius:var(--radius-xl);
-      background:var(--card);
-      border:1px solid var(--card-border);
-      backdrop-filter:blur(10px);
+
+      background: var(--glass-blue);
+      border:1px solid var(--glass-border);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+
       box-shadow:var(--shadow);
-      padding:16px;
+      padding:18px;
     }
 
     .card h2{
-      margin:0 0 6px 0;
+      margin:0 0 8px 0;
       font-size:18px;
       letter-spacing:.02em;
     }
@@ -112,15 +116,14 @@
       padding:12px 16px;
       border-radius:16px;
       text-decoration:none;
-      font-weight:600;
-      border:1px solid rgba(255,255,255,.25);
-      background:rgba(255,255,255,.92);
+      font-weight:700;
+
+      border:1px solid rgba(255,255,255,.28);
+      background: rgba(255,255,255,.92);
       color:#111;
     }
 
-    .btn:hover{
-      background:#fff;
-    }
+    .btn:hover{ background:#fff; }
 
     @media (max-width:520px){
       .section{padding:18px}
@@ -146,7 +149,7 @@
       <div class="card">
         <h2>CERVEZA LATA AMSTEL</h2>
         <p class="price">$4.500</p>
-        <a class="btn" href="https://link.mercadopago.com.ar/TU_LINK_01" target="_blank">
+        <a class="btn" href="https://link.mercadopago.com.ar/TU_LINK_01" target="_blank" rel="noopener">
           Pedir
         </a>
       </div>
@@ -161,7 +164,7 @@
       <div class="card">
         <h2>COMBO – CERVEZA LATA AMSTEL x2</h2>
         <p class="price">$8.000</p>
-        <a class="btn" href="https://link.mercadopago.com.ar/TU_LINK_02" target="_blank">
+        <a class="btn" href="https://link.mercadopago.com.ar/TU_LINK_02" target="_blank" rel="noopener">
           Pedir
         </a>
       </div>
@@ -176,7 +179,7 @@
       <div class="card">
         <h2>PIZZA CASERA (Porción)</h2>
         <p class="price">$2.000</p>
-        <a class="btn" href="https://link.mercadopago.com.ar/TU_LINK_03" target="_blank">
+        <a class="btn" href="https://link.mercadopago.com.ar/TU_LINK_03" target="_blank" rel="noopener">
           Pedir
         </a>
       </div>
@@ -191,7 +194,7 @@
       <div class="card">
         <h2>VASO FERNET</h2>
         <p class="price">$6.000</p>
-        <a class="btn" href="https://link.mercadopago.com.ar/TU_LINK_04" target="_blank">
+        <a class="btn" href="https://link.mercadopago.com.ar/TU_LINK_04" target="_blank" rel="noopener">
           Pedir
         </a>
       </div>
